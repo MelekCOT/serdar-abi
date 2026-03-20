@@ -1,0 +1,17 @@
+# Görseller - kullanıcı tarafından eklenir (gallery1.png vb.)
+images/*.png
+images/*.jpg
+images/*.jpeg
+
+# Python
+__pycache__/
+*.pyc
+.python-version
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/

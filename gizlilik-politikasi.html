@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gizlilik Politikası | İkra Scooter Rent & Kurye</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0ea5e9;
+            --primary-dark: #0284c7;
+            --dark: #0f172a;
+            --gray: #64748b;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Outfit', sans-serif;
+            color: var(--dark);
+            line-height: 1.7;
+            background: #f8fafc;
+        }
+        .container {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem 4rem;
+        }
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            font-size: 0.95rem;
+        }
+        .back-link:hover { color: var(--primary-dark); }
+        .lang-switcher { display: flex; gap: 0.25rem; margin-bottom: 1.5rem; }
+        .lang-switcher button {
+            background: #e2e8f0;
+            border: 1px solid #cbd5e1;
+            color: var(--dark);
+            padding: 0.35rem 0.65rem;
+            border-radius: 6px;
+            font-family: inherit;
+            font-weight: 600;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .lang-switcher button:hover { background: #f1f5f9; }
+        .lang-switcher button.active { background: var(--primary); color: white; border-color: var(--primary); }
+        h1 {
+            font-size: 1.75rem;
+            margin-bottom: 0.5rem;
+        }
+        .updated { color: var(--gray); font-size: 0.9rem; margin-bottom: 2rem; }
+        .policy-card {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 2px 12px rgba(15,23,42,0.06);
+        }
+        h2 {
+            font-size: 1.15rem;
+            margin: 1.75rem 0 0.75rem;
+            color: var(--dark);
+        }
+        h2:first-child { margin-top: 0; }
+        p, li { margin-bottom: 0.75rem; color: #334155; }
+        ul { margin-left: 1.25rem; }
+        .highlight { background: #f1f5f9; padding: 0.2rem 0.4rem; border-radius: 4px; }
+        footer {
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #e2e8f0;
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="lang-switcher">
+            <button type="button" data-lang="tr" class="active">TR</button>
+            <button type="button" data-lang="en">EN</button>
+        </div>
+        <a href="index.html" class="back-link" data-i18n="backLink">← Ana Sayfaya Dön</a>
+
+        <h1 data-i18n="privacyTitle">Gizlilik Politikası</h1>
+        <p class="updated" data-i18n="privacyUpdated">İkra Scooter Rent & Kurye | Son güncelleme: Mart 2025</p>
+
+        <div class="policy-card">
+            <p data-i18n="privacyIntro">Bu gizlilik politikası, İkra Scooter Rent & Kurye (“biz”, “şirketimiz”) olarak web sitemizi ziyaret eden ve WhatsApp üzerinden bizimle iletişime geçen kişilerin kişisel verilerinin nasıl işlendiğini açıklamaktadır. 6698 sayılı Kişisel Verilerin Korunması Kanunu (KVKK) kapsamında veri sorumlusu sıfatıyla hareket etmekteyiz.</p>
+
+            <h2 data-i18n="privacy1Title">1. Toplanan Kişisel Veriler</h2>
+            <p data-i18n="privacy1Text">WhatsApp üzerinden bizimle iletişime geçtiğinizde aşağıdaki veriler otomatik olarak elde edilebilir:</p>
+            <ul>
+                <li data-i18n="privacy1a"><strong>Telefon numarası</strong> – WhatsApp hesabınıza kayıtlı numara</li>
+                <li data-i18n="privacy1b"><strong>Profil adı</strong> – WhatsApp’ta görünen adınız (varsa)</li>
+                <li data-i18n="privacy1c"><strong>Mesaj içeriği</strong> – Gönderdiğiniz yazılı mesajlar</li>
+            </ul>
+            <p data-i18n="privacy1End">Bu veriler, yalnızca sizin bizimle iletişime geçmeniz sonucu oluşur. Web sitemizde form doldurma veya hesap oluşturma bulunmamaktadır.</p>
+
+            <h2 data-i18n="privacy2Title">2. Verilerin İşlenme Amaçları</h2>
+            <p data-i18n="privacy2Text">Topladığımız kişisel veriler aşağıdaki amaçlarla kullanılmaktadır:</p>
+            <ul>
+                <li data-i18n="privacy2a">Scooter ve moto kiralama taleplerinize yanıt vermek</li>
+                <li data-i18n="privacy2b">Motokurye hizmeti ile ilgili bilgi ve fiyat teklifi sunmak</li>
+                <li data-i18n="privacy2c">Randevu ve teslimat süreçlerini yönetmek</li>
+                <li data-i18n="privacy2d">Yasal yükümlülüklerimizi yerine getirmek</li>
+            </ul>
+
+            <h2 data-i18n="privacy3Title">3. Verilerin Saklanma Süresi</h2>
+            <p data-i18n="privacy3Text">Kişisel verileriniz, yalnızca hizmet ilişkisinin devam ettiği süre ve yasal saklama süreleri boyunca muhafaza edilir. İlişkinin sona ermesinden sonra, KVKK ve ilgili mevzuata uygun şekilde silinir veya anonim hale getirilir.</p>
+
+            <h2 data-i18n="privacy4Title">4. Verilerin Paylaşımı</h2>
+            <p data-i18n="privacy4Text">Kişisel verileriniz, hizmet sunumu için gerekli olanlar dışında üçüncü taraflarla paylaşılmaz. Yasal zorunluluk halinde yetkili kurum ve kuruluşlara bilgi verilebilir.</p>
+
+            <h2>5. KVKK Kapsamında Haklarınız</h2>
+            <p>KVKK’nın 11. maddesi uyarınca aşağıdaki haklara sahipsiniz:</p>
+            <ul>
+                <li data-i18n="privacy5a">Kişisel verilerinizin işlenip işlenmediğini öğrenme</li>
+                <li data-i18n="privacy5b">İşlenmişse buna ilişkin bilgi talep etme</li>
+                <li data-i18n="privacy5c">İşlenme amacını ve amacına uygun kullanılıp kullanılmadığını öğrenme</li>
+                <li data-i18n="privacy5d">Yurt içinde veya yurt dışında aktarıldığı üçüncü kişileri bilme</li>
+                <li data-i18n="privacy5e">Eksik veya yanlış işlenmişse düzeltilmesini isteme</li>
+                <li>KVKK’nın 7. maddesinde öngörülen şartlar çerçevesinde silinmesini veya yok edilmesini talep etme</li>
+                <li data-i18n="privacy5g">Otomatik sistemler vasıtasıyla analiz edilmesi suretiyle aleyhinize bir sonucun ortaya çıkmasına itiraz etme</li>
+                <li data-i18n="privacy5h">Kanuna aykırı işlenmesi sebebiyle zarara uğramanız hâlinde zararın giderilmesini talep etme</li>
+            </ul>
+            <p data-i18n="privacy5End">Bu haklarınızı kullanmak için aşağıdaki iletişim kanallarımızdan bize ulaşabilirsiniz.</p>
+
+            <h2 data-i18n="privacy6Title">6. Veri Güvenliği</h2>
+            <p data-i18n="privacy6Text">Kişisel verilerinizin güvenliği için teknik ve idari tedbirler alınmaktadır. WhatsApp mesajlaşmaları, platformun kendi şifreleme altyapısı üzerinden gerçekleşir. Verilerinize yetkisiz erişim, kayıp veya değişiklik riskini azaltmak için gerekli önlemler uygulanmaktadır.</p>
+
+            <h2 data-i18n="privacy7Title">7. İletişim</h2>
+            <p data-i18n="privacy7Text">Gizlilik politikamız veya kişisel verilerinizle ilgili sorularınız için:</p>
+            <p>
+                <strong>İkra Scooter Rent & Kurye</strong><br>
+                <span data-i18n="privacy7Address">Adres:</span> Tuzla, Süleyman Demirel Blv. 133 B, 48300 Fethiye/Muğla<br>
+                <span data-i18n="privacy7Phone">Telefon:</span> <a id="tel-link" href="tel:+905xxxxxxxxx" style="color: var(--primary);">+90 (5XX) XXX XX XX</a><br>
+                <span data-i18n="privacy7Wa">WhatsApp üzerinden de iletişime geçebilirsiniz.</span>
+            </p>
+
+            <h2 data-i18n="privacy8Title">8. Politika Değişiklikleri</h2>
+            <p data-i18n="privacy8Text">Bu gizlilik politikası güncellendiğinde, değişiklikler bu sayfada yayımlanacaktır. Önemli değişikliklerde sizi bilgilendirmek için uygun yöntemleri kullanabiliriz.</p>
+
+            <footer>
+                <p data-i18n="footerRights">© 2025 İkra Scooter Rent & Kurye. Tüm hakları saklıdır.</p>
+            </footer>
+        </div>
+    </div>
+    <script src="config.js"></script>
+    <script src="translations.js"></script>
+    <script>
+        (function() {
+            var LANG_KEY = 'ikra_lang';
+            var params = new URLSearchParams(location.search);
+            var lang = params.get('lang') || localStorage.getItem(LANG_KEY) || 'tr';
+
+            function setLang(newLang) {
+                lang = newLang;
+                localStorage.setItem(LANG_KEY, lang);
+                document.documentElement.lang = lang === 'en' ? 'en' : 'tr';
+                document.querySelectorAll('.lang-switcher button').forEach(function(btn) {
+                    btn.classList.toggle('active', btn.dataset.lang === lang);
+                });
+                document.querySelectorAll('[data-i18n]').forEach(function(el) {
+                    var key = el.getAttribute('data-i18n');
+                    if (IKRA_TRANSLATIONS[lang] && IKRA_TRANSLATIONS[lang][key]) {
+                        el.textContent = IKRA_TRANSLATIONS[lang][key];
+                    }
+                });
+                var backLink = document.querySelector('.back-link');
+                if (backLink) backLink.href = 'index.html?lang=' + lang;
+            }
+
+            document.querySelectorAll('.lang-switcher button').forEach(function(btn) {
+                btn.addEventListener('click', function() {
+                    setLang(btn.dataset.lang);
+                    history.replaceState(null, '', '?lang=' + btn.dataset.lang);
+                });
+            });
+
+            setLang(lang);
+
+            if (typeof IKRA_TELEFON !== 'undefined' && IKRA_TELEFON !== '5xxxxxxxxx') {
+                var num = '90' + IKRA_TELEFON.replace(/\D/g, '');
+                var telLink = document.getElementById('tel-link');
+                if (telLink) {
+                    telLink.href = 'tel:+' + num;
+                    telLink.textContent = '+90 (' + IKRA_TELEFON.slice(0,3) + ') ' + IKRA_TELEFON.slice(3,6) + ' ' + IKRA_TELEFON.slice(6,8) + ' ' + IKRA_TELEFON.slice(8);
+                }
+            }
+        })();
+    </script>
+</body>
+</html>
