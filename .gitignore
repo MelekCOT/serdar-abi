@@ -3,6 +3,9 @@ images/*.png
 images/*.jpg
 images/*.jpeg
 
+# Hostinger deployment
+ikrascooterrental.zip
+
 # Python
 __pycache__/
 *.pyc
