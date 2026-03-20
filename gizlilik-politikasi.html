@@ -33,6 +33,8 @@
             max-width: 720px;
             margin: 0 auto;
             padding: 2rem 1.5rem 4rem;
+            padding-left: max(1.5rem, env(safe-area-inset-left));
+            padding-right: max(1.5rem, env(safe-area-inset-right));
         }
         .back-link {
             display: inline-flex;
@@ -86,6 +88,18 @@
             border-top: 1px solid #e2e8f0;
             font-size: 0.9rem;
             color: var(--gray);
+        }
+        html { -webkit-text-size-adjust: 100%; overflow-x: hidden; }
+        @media (max-width: 600px) {
+            .container { padding: 1.5rem 1rem 3rem; }
+            h1 { font-size: 1.4rem; }
+            .policy-card { padding: 1.5rem; }
+            h2 { font-size: 1.05rem; margin: 1.5rem 0 0.5rem; }
+            p, li { font-size: 0.95rem; }
+        }
+        @media (max-width: 380px) {
+            .container { padding: 1rem 0.75rem 2rem; }
+            .policy-card { padding: 1rem; }
         }
     </style>
 </head>
@@ -149,7 +163,7 @@
             <p>
                 <strong>İkra Scooter Rent & Kurye</strong><br>
                 <span data-i18n="privacy7Address">Adres:</span> Tuzla, Süleyman Demirel Blv. 133 B, 48300 Fethiye/Muğla<br>
-                <span data-i18n="privacy7Phone">Telefon:</span> <a id="tel-link" href="tel:+905xxxxxxxxx" style="color: var(--primary);">+90 (5XX) XXX XX XX</a><br>
+                <span data-i18n="privacy7Phone">Telefon:</span> <a id="tel-link" href="tel:+905406143434" style="color: var(--primary);">+90 (540) 614 34 34</a><br>
                 <span data-i18n="privacy7Wa">WhatsApp üzerinden de iletişime geçebilirsiniz.</span>
             </p>
 
@@ -178,7 +192,7 @@
                 });
                 document.querySelectorAll('[data-i18n]').forEach(function(el) {
                     var key = el.getAttribute('data-i18n');
-                    if (IKRA_TRANSLATIONS[lang] && IKRA_TRANSLATIONS[lang][key]) {
+                    if (typeof IKRA_TRANSLATIONS !== 'undefined' && IKRA_TRANSLATIONS[lang] && IKRA_TRANSLATIONS[lang][key]) {
                         el.textContent = IKRA_TRANSLATIONS[lang][key];
                     }
                 });

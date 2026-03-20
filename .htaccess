@@ -1,0 +1,11 @@
+# İkra Scooter Rent - Hostinger Apache Ayarları
+# Bu dosyayı public_html köküne yükleyin (index.html ile aynı yerde)
+
+# Ana sayfa olarak index.html kullan
+DirectoryIndex index.html index.htm index.php
+
+# Klasör listelemesini kapat (güvenlik)
+Options -Indexes
+
+# UTF-8 karakter seti
+AddDefaultCharset UTF-8

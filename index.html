@@ -37,11 +37,17 @@
             box-sizing: border-box;
         }
 
+        html {
+            overflow-x: hidden;
+            -webkit-text-size-adjust: 100%;
+        }
+
         body {
             font-family: 'Outfit', sans-serif;
             color: var(--dark);
             line-height: 1.6;
             overflow-x: hidden;
+            min-width: 0;
         }
 
         /* Hero Bölümü */
@@ -147,7 +153,7 @@
 
         .service-blocks {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
             gap: 1.5rem;
         }
 
@@ -197,8 +203,8 @@
         /* WhatsApp Butonu */
         .whatsapp-cta {
             position: fixed;
-            bottom: 24px;
-            right: 24px;
+            bottom: max(24px, env(safe-area-inset-bottom));
+            right: max(24px, env(safe-area-inset-right));
             z-index: 1000;
         }
 
@@ -233,6 +239,7 @@
             overflow: hidden;
             background: var(--dark);
             position: relative;
+            min-height: 220px;
         }
         .gallery-track {
             display: flex;
@@ -241,6 +248,8 @@
             padding: 0 1rem;
             width: max-content;
             animation: galleryScroll 50s linear infinite;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
         }
         .gallery-track:hover {
             animation-play-state: paused;
@@ -257,6 +266,8 @@
             justify-content: center;
             border-radius: 8px;
             overflow: hidden;
+            -webkit-transform: translateZ(0);
+            transform: translateZ(0);
         }
         .gallery-slide img {
             width: 100%;
@@ -264,10 +275,11 @@
             object-fit: contain;
             display: block;
             margin: 0;
+            min-height: 160px;
         }
         @keyframes galleryScroll {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
+            0% { transform: translateX(0); -webkit-transform: translateX(0); }
+            100% { transform: translateX(-50%); -webkit-transform: translateX(-50%); }
         }
         .gallery-overlay {
             position: absolute;
@@ -290,7 +302,7 @@
             max-width: 1100px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
             gap: 2rem;
             margin-bottom: 2rem;
         }
@@ -345,25 +357,138 @@
             height: 20px;
         }
 
+        /* Tablet ve küçük ekranlar */
+        @media (max-width: 768px) {
+            .hero {
+                padding: 3.5rem 1.5rem 4.5rem;
+            }
+            .services {
+                padding: 3rem 1.5rem;
+            }
+            .services-intro h2 {
+                font-size: 1.5rem;
+            }
+            .footer-content {
+                gap: 1.5rem;
+            }
+            footer {
+                padding: 2.5rem 1.5rem 2rem;
+            }
+        }
+
+        /* Mobil telefonlar */
         @media (max-width: 600px) {
             .hero {
-                padding: 3rem 1.5rem 4rem;
+                padding: 3rem 1.25rem 4rem;
             }
+            .hero-content {
+                padding: 0 0.5rem;
+            }
+            .lang-switcher {
+                top: 1rem;
+                right: 1rem;
+            }
+            .lang-switcher button {
+                padding: 0.35rem 0.6rem;
+                font-size: 0.85rem;
+            }
+            .hero h1 {
+                font-size: clamp(1.5rem, 8vw, 2.2rem);
+            }
+            .hero .slogan {
+                font-size: 1rem;
+            }
+            .hero .subtitle {
+                font-size: 0.95rem;
+            }
+            .gallery-strip {
+                min-height: 220px;
+            }
+            /* Mobilde her slide tam genişlik - kesilme yok */
             .gallery-slide {
-                flex: 0 0 260px;
-                width: 260px;
-                min-height: 180px;
+                flex: 0 0 92vw;
+                width: 92vw;
+                height: 45vw;
+                min-height: 220px;
+                max-height: 320px;
             }
-            .gallery-track { gap: 0.75rem; }
-
-            .whatsapp-cta {
-                bottom: 16px;
-                right: 16px;
+            .gallery-slide img {
+                min-height: 200px;
+                object-fit: cover;
             }
-
-            .whatsapp-cta a {
-                padding: 12px 18px;
+            .gallery-track {
+                gap: 1rem;
+                padding: 0 4vw;
+            }
+            .services {
+                padding: 2.5rem 1.25rem;
+                padding-bottom: 6rem;
+            }
+            .services-intro {
+                margin-bottom: 2rem;
+            }
+            .services-intro h2 {
+                font-size: 1.35rem;
+            }
+            .services-intro p {
+                font-size: 1rem;
+            }
+            .service-block {
+                padding: 1.5rem;
+            }
+            .service-block h3 {
+                font-size: 1.1rem;
+            }
+            .service-block p {
                 font-size: 0.9rem;
+            }
+            .whatsapp-cta {
+                bottom: max(12px, env(safe-area-inset-bottom));
+                right: max(12px, env(safe-area-inset-right));
+            }
+            .whatsapp-cta a {
+                padding: 10px 14px;
+                font-size: 0.8rem;
+                white-space: nowrap;
+            }
+            .whatsapp-cta svg {
+                width: 20px;
+                height: 20px;
+            }
+            footer {
+                padding: 2rem 1.25rem 2.5rem;
+                padding-bottom: 5rem;
+            }
+            .footer-section h4 {
+                font-size: 0.95rem;
+            }
+            .footer-section p,
+            .footer-section a {
+                font-size: 0.9rem;
+            }
+            .footer-bottom {
+                padding-top: 1.5rem;
+                font-size: 0.85rem;
+            }
+            .footer-bottom .footer-links {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+        }
+
+        /* Çok küçük ekranlar (iPhone SE vb.) */
+        @media (max-width: 380px) {
+            .hero {
+                padding: 2.5rem 0.75rem 3.5rem;
+            }
+            .hero h1 {
+                font-size: 1.4rem;
+            }
+            .service-blocks {
+                grid-template-columns: 1fr;
+            }
+            .footer-content {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -385,18 +510,18 @@
     <!-- Galeri Şeridi - Header'ın altında -->
     <section class="gallery-strip">
         <div class="gallery-track">
-            <div class="gallery-slide"><img src="images/gallery1.png" alt="İkra Scooter Rent - Mağaza önü" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&h=600&fit=crop';"></div>
-            <div class="gallery-slide"><img src="images/gallery2.png" alt="İkra Scooter Rent - Araç filosu" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1609630875171-b1321377ee65?w=1200&h=600&fit=crop';"></div>
-            <div class="gallery-slide"><img src="images/gallery3.png" alt="İkra Scooter Rent - Beyaz scooter" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?w=1200&h=600&fit=crop';"></div>
-            <div class="gallery-slide"><img src="images/gallery4.png" alt="İkra Scooter Rent - Nane yeşili scooter" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1609630875171-b1321377ee65?w=1200&h=600&fit=crop';"></div>
-            <div class="gallery-slide"><img src="images/gallery5.png" alt="İkra Scooter Rent - Zeytin yeşili scooter" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&h=600&fit=crop';"></div>
-            <div class="gallery-slide"><img src="images/gallery6.png" alt="İkra Scooter Rent - Honda Activa" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?w=1200&h=600&fit=crop';"></div>
-            <div class="gallery-slide"><img src="images/gallery1.png" alt="İkra Scooter Rent - Mağaza önü" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&h=600&fit=crop';"></div>
-            <div class="gallery-slide"><img src="images/gallery2.png" alt="İkra Scooter Rent - Araç filosu" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1609630875171-b1321377ee65?w=1200&h=600&fit=crop';"></div>
-            <div class="gallery-slide"><img src="images/gallery3.png" alt="İkra Scooter Rent - Beyaz scooter" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?w=1200&h=600&fit=crop';"></div>
-            <div class="gallery-slide"><img src="images/gallery4.png" alt="İkra Scooter Rent - Nane yeşili scooter" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1609630875171-b1321377ee65?w=1200&h=600&fit=crop';"></div>
-            <div class="gallery-slide"><img src="images/gallery5.png" alt="İkra Scooter Rent - Zeytin yeşili scooter" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&h=600&fit=crop';"></div>
-            <div class="gallery-slide"><img src="images/gallery6.png" alt="İkra Scooter Rent - Honda Activa" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?w=1200&h=600&fit=crop';"></div>
+            <div class="gallery-slide"><img src="images/gallery1.png?v=2" alt="İkra Scooter Rent - Mağaza önü" loading="eager" decoding="async" fetchpriority="high" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=600&fit=crop&q=80';"></div>
+            <div class="gallery-slide"><img src="images/gallery2.png?v=2" alt="İkra Scooter Rent - Araç filosu" loading="eager" decoding="async" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1609630875171-b1321377ee65?w=800&h=600&fit=crop&q=80';"></div>
+            <div class="gallery-slide"><img src="images/gallery3.png?v=2" alt="İkra Scooter Rent - Beyaz scooter" loading="eager" decoding="async" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?w=800&h=600&fit=crop&q=80';"></div>
+            <div class="gallery-slide"><img src="images/gallery4.png?v=2" alt="İkra Scooter Rent - Nane yeşili scooter" loading="eager" decoding="async" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1609630875171-b1321377ee65?w=800&h=600&fit=crop&q=80';"></div>
+            <div class="gallery-slide"><img src="images/gallery5.png?v=2" alt="İkra Scooter Rent - Zeytin yeşili scooter" loading="eager" decoding="async" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=600&fit=crop&q=80';"></div>
+            <div class="gallery-slide"><img src="images/gallery6.png?v=2" alt="İkra Scooter Rent - Honda Activa" loading="eager" decoding="async" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?w=800&h=600&fit=crop&q=80';"></div>
+            <div class="gallery-slide"><img src="images/gallery1.png" alt="İkra Scooter Rent - Mağaza önü" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=600&fit=crop&q=80';"></div>
+            <div class="gallery-slide"><img src="images/gallery2.png?v=2" alt="İkra Scooter Rent - Araç filosu" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1609630875171-b1321377ee65?w=800&h=600&fit=crop&q=80';"></div>
+            <div class="gallery-slide"><img src="images/gallery3.png?v=2" alt="İkra Scooter Rent - Beyaz scooter" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?w=800&h=600&fit=crop&q=80';"></div>
+            <div class="gallery-slide"><img src="images/gallery4.png?v=2" alt="İkra Scooter Rent - Nane yeşili scooter" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1609630875171-b1321377ee65?w=800&h=600&fit=crop&q=80';"></div>
+            <div class="gallery-slide"><img src="images/gallery5.png?v=2" alt="İkra Scooter Rent - Zeytin yeşili scooter" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=600&fit=crop&q=80';"></div>
+            <div class="gallery-slide"><img src="images/gallery6.png?v=2" alt="İkra Scooter Rent - Honda Activa" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?w=800&h=600&fit=crop&q=80';"></div>
         </div>
         <div class="gallery-overlay"></div>
     </section>
@@ -451,7 +576,7 @@
             </div>
             <div class="footer-section">
                 <h4 data-i18n="footerPhone">Telefon</h4>
-                <p><a id="tel-link" href="tel:+905xxxxxxxxx">+90 (5XX) XXX XX XX</a></p>
+                <p><a id="tel-link" href="tel:+905406143434">+90 (540) 614 34 34</a></p>
             </div>
             <div class="footer-section">
                 <h4 data-i18n="footerHours">Çalışma Saatleri</h4>
@@ -488,20 +613,20 @@
                 });
                 document.querySelectorAll('[data-i18n]').forEach(function(el) {
                     var key = el.getAttribute('data-i18n');
-                    if (IKRA_TRANSLATIONS[lang] && IKRA_TRANSLATIONS[lang][key]) {
+                    if (typeof IKRA_TRANSLATIONS !== 'undefined' && IKRA_TRANSLATIONS[lang] && IKRA_TRANSLATIONS[lang][key]) {
                         el.innerHTML = IKRA_TRANSLATIONS[lang][key];
                     }
                 });
                 document.querySelectorAll('[data-i18n-aria]').forEach(function(el) {
                     var key = el.getAttribute('data-i18n-aria');
-                    if (IKRA_TRANSLATIONS[lang] && IKRA_TRANSLATIONS[lang][key]) {
+                    if (typeof IKRA_TRANSLATIONS !== 'undefined' && IKRA_TRANSLATIONS[lang] && IKRA_TRANSLATIONS[lang][key]) {
                         el.setAttribute('aria-label', IKRA_TRANSLATIONS[lang][key]);
                     }
                 });
                 var privacyLink = document.querySelector('a[href="gizlilik-politikasi.html"]');
                 if (privacyLink) privacyLink.href = 'gizlilik-politikasi.html?lang=' + lang;
                 var waBtn = document.getElementById('whatsapp-btn');
-                if (waBtn && IKRA_TRANSLATIONS[lang] && IKRA_TRANSLATIONS[lang].waMessage) {
+                if (waBtn && typeof IKRA_TRANSLATIONS !== 'undefined' && IKRA_TRANSLATIONS[lang] && IKRA_TRANSLATIONS[lang].waMessage) {
                     var num = IKRA_TELEFON && IKRA_TELEFON !== '5xxxxxxxxx' ? '90' + IKRA_TELEFON.replace(/\D/g, '') : '905xxxxxxxxx';
                     waBtn.href = 'https://wa.me/' + num + '?text=' + encodeURIComponent(IKRA_TRANSLATIONS[lang].waMessage);
                 }
